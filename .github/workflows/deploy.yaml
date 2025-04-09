@@ -20,5 +20,9 @@ jobs:
       - name: Install dependencies
         run: go mod download
 
+      - name: Test
+        run: go test ./...
+
       - name: Compile binary
+        if: ${{ success() }}
         run: go build -o myapp
